@@ -3,6 +3,7 @@
   --main-color: #212121;
   --secondary-color: #757575;
   --active-color: #2196f3;
+  --backdrop-card-color: rgba(33, 150, 243, 0.9);
   --white-color: #ffffff;
   --link-color-rgba-60: rgba(255, 255, 255, 0.6);
   --icon-color: #afb1b8;
@@ -236,13 +237,24 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
+
   background-color: var(--bg-modal);
+
+  opacity: 1;
+  transition: opacity 250ms var(--timing-function);
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: visible;
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.1);
 }
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 
   min-width: 528px;
   min-height: 581px;
@@ -251,6 +263,9 @@ img {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms var(--timing-function);
 }
 .modal-btn {
   padding: 6px;
@@ -261,11 +276,7 @@ img {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
 }
-.backdrop.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
-}
+
 /* СИЛЬНІ СТОРОНИ */
 
 /* яке повторюється */
@@ -581,6 +592,8 @@ img {
   flex-wrap: wrap;
 }
 .projects-item {
+  /* overflow: hidden; */
+
   width: calc((100% - 60px) / 3);
   margin-right: 30px;
   margin-bottom: 30px;
@@ -612,6 +625,50 @@ img {
   text-decoration: none;
 
   color: var(--main-color);
+}
+.projects-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.projects-text-after {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+
+  padding: 63px 24px;
+
+  color: var(--white-color);
+  /* background: var(--active-color); */
+  /* background-color: var(--backdrop-card-color); */
+  transform: translateY(100%);
+  transition: transform 250ms var(--timing-function);
+
+  overflow: hidden;
+
+  z-index: 10;
+}
+.projects-img-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--backdrop-card-color);
+
+  transform: translateY(100%);
+  transition: transform 250ms var(--timing-function);
+}
+.projects-item:hover .projects-img-wrap::after {
+  transform: translateY(0);
+}
+
+.projects-item:hover .projects-text-after {
+  transform: translateY(0);
 }
 .projects-img {
 }

@@ -8,6 +8,7 @@
   --link-color-rgba-60: rgba(255, 255, 255, 0.6);
   --icon-color: #afb1b8;
   --social-links-rgba-10: rgba(255, 255, 255, 0.1);
+  --bg-work-cards: rgba(47, 48, 58, 0.8);
 
   /* background color */
   --bg-dark: #2f303a;
@@ -372,9 +373,30 @@ img {
 }
 .work-item {
 }
+.work-item-wrap {
+  position: relative;
+}
 .work-img {
 }
+.work-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 70px;
 
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  padding-top: 27px;
+
+  color: var(--white-color);
+  background-color: var(--bg-work-cards);
+}
 /* НАША КОМАНДА */
 .bg-light {
   background-color: var(--bg-light);

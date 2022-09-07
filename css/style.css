@@ -271,8 +271,10 @@ img {
   transition: transform 250ms var(--timing-function);
 }
 .modal-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
   padding: 6px;
-  margin: 8px 8px 0 auto;
 
   background-color: var(--white-color);
 
@@ -385,14 +387,16 @@ img {
   width: 100%;
   min-height: 70px;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
   text-align: center;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-
-  padding-top: 27px;
 
   color: var(--white-color);
   background-color: var(--bg-work-cards);
@@ -614,7 +618,8 @@ img {
 
   cursor: pointer;
 
-  transition: background-color 250ms var(--timing-function), color 250ms var(--timing-function);
+  transition: background-color 250ms var(--timing-function), color 250ms var(--timing-function),
+    box-shadow 250ms var(--timing-function);
 }
 .filter-btn:hover,
 .filter-btn:focus {
